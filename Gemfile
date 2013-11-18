@@ -2,6 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.1'
 
+# 用户系统
+gem 'devise', '3.0.1'
+
+# 表单
+gem 'simple_form', "3.0.0.rc"
+
 gem 'sass-rails', '~> 4.0.0'
 
 gem 'uglifier', '>= 1.3.0'
@@ -18,9 +24,9 @@ group :develpoment do
   gem 'sqlite3'
 end
 
-# group :production do
-
-# end
+group :production do
+  gem 'sqlite3'
+end
 
 group :doc do
   gem 'sdoc', require: false
