@@ -1,0 +1,13 @@
+'zh':
+  simple_form:
+    labels:
+      user:
+        new:
+          email: '邮箱'
+          password: '密码'
+          password_confirmation: '密码确认'
+        edit:
+          email: '邮箱'
+          password: '密码'
+          password_confirmation: '密码确认'
+          current_password: '当前密码'

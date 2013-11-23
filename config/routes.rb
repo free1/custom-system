@@ -1,8 +1,12 @@
 Ibiancheng::Application.routes.draw do
   
-  devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+  devise_for :users, :path => "account", :controllers => {
+    :registrations => :account,
+    :sessions => :sessions
+  }
+  # devise_for :users do
+  #   get '/users/sign_out' => 'devise/sessions#destroy'
+  # end
 
   root 'static_pages#home'
 
