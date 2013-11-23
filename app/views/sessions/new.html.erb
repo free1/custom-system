@@ -1,5 +1,6 @@
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
+  <%= devise_error_messages! %>
   <fieldset>
     <legend>登录</legend>
 

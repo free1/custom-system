@@ -8,8 +8,16 @@
 </head>
 <body>
 
-<!--   <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p> -->
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  
+  <% if user_signed_in? %>
+    <ul>
+      <li><%= link_to "首页", root_path %></li>
+      <li><%= link_to "编辑个人资料", edit_user_registration_path %></li>
+      <li><%= link_to "退出", destroy_user_session_path, method: :delete %></li>
+    </ul>
+  <% end %>
   
 <%= yield %>
 
