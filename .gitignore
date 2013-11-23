@@ -4,13 +4,35 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-# Ignore bundler config.
-/.bundle
+.bundle
+tmp/
+coverage/
+db/*.sqlite3
+tmp/
+log/*.log
+log/*.log*
+tmp/**/*
+.sass-cache/
+public/assets/
+config/database.yml
+config/mongoid.yml
+config/config.yml
+config/thin.yml
+config/redis.yml
+config/mailer_daemon.yml
+public/uploads/**/*
+public/topics
+public/topics/**/*
+.redcar
+.DS_Store
+*.swp
+*.swo
+.rvmrc
+vendor/ruby
+doc/wiki_repo
+solr/data/
+solr/pids/
+bin/
+tags
+chromedriver.log
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
-
-# Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
