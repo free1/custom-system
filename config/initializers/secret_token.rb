@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Ibiancheng::Application.config.secret_key_base = '17f2a77da52b872b55ea40a82aa32dae4308c7965d56167d481b70ea37e9c01c1005265d660f7b6250841a46707acdabae33b99c18a22ce6c1de8717d8e97900'
+Ibiancheng::Application.config.secret_key_base = '958126ea37dc328f3934058f763605d4ff82181bafa69ec4c55176ec5515c854539be4d433a21ce772833bafcc8c12abaeff0b6d0f69f922f713697303855d8c'
