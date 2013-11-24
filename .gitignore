@@ -6,25 +6,19 @@
 
 .bundle
 tmp/
-coverage/
-tmp/
 log/*.log
 log/*.log*
 tmp/**/*
 .sass-cache/
 public/assets/
-config/thin.yml
-config/mailer_daemon.yml
 public/uploads/**/*
 .redcar
 .DS_Store
 *.swp
 *.swo
-vendor/ruby
 doc/wiki_repo
 solr/data/
 solr/pids/
-bin/
 tags
 chromedriver.log
 
