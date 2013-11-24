@@ -3,11 +3,14 @@
     labels:
       user:
         new:
+          login: '用户名或邮箱'
+          username: '用户名'
           email: '邮箱'
           password: '密码'
           password_confirmation: '密码确认'
         edit:
+          username: '用户名'
           email: '邮箱'
-          password: '密码'
-          password_confirmation: '密码确认'
-          current_password: '当前密码'
+          password: '新密码'
+          password_confirmation: '新密码确认'
+          current_password: '原始密码'

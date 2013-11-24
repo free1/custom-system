@@ -1,9 +1,14 @@
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
 
   <fieldset>
-    <legend>编辑资料</legend>
+    <legend>编辑个人资料</legend>
 
+    <%= f.input :username %>
     <%= f.input :email %>
+  </fieldset>
+
+  <fieldset>
+    <legend>修改密码</legend>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
