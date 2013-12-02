@@ -13,6 +13,8 @@
 
     <div><%= f.submit "登录" %></div>
 
+    <%= link_to "使用github登录", user_omniauth_authorize_path(:github) %>
+
   </fieldset>
 <% end %>
 

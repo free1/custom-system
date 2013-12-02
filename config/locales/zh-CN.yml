@@ -7,3 +7,4 @@ zh:
         confirmation: '两次输入的密码不相同!'
         blank:  '此项不能为空!'
         invalid: '输入的内容不正确!'
+        record_invalid: '记录无效!'

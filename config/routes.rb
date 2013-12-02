@@ -2,7 +2,8 @@ Ibiancheng::Application.routes.draw do
   
   devise_for :users, :path => "account", :controllers => {
     :registrations => :account,
-    :sessions => :sessions
+    :sessions => :sessions,
+    :omniauth_callbacks => "users/omniauth_callbacks"
   }
   # devise_for :users do
   #   get '/users/sign_out' => 'devise/sessions#destroy'

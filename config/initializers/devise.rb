@@ -1,5 +1,8 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+
+require "omniauth-github"
+
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -36,9 +39,12 @@ Devise.setup do |config|
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
   config.case_insensitive_keys = [ :email ]
+  # 使用用户名或邮箱登录
   config.authentication_keys = [ :login ]
   config.reset_password_keys = [ :login ]
   config.confirmation_keys = [ :login ]
+  # 第三方登录
+  config.omniauth :github, "d21516da50328d1019bc", "029fdcd01310c82412e3bbd68d54d4e545e964e6"
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or

@@ -4,9 +4,11 @@ gem 'rails', '4.0.1'
 
 # 用户系统
 gem 'devise', '3.0.1'
-
 # 表单
 gem 'simple_form', "3.0.0.rc"
+# 使用第三方登录
+gem 'omniauth'
+gem 'omniauth-github'
 
 gem 'sass-rails', '~> 4.0.0'
 
