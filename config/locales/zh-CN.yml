@@ -1,10 +1,15 @@
 zh:
   activerecord:
     errors:
-      messages:
-        too_short: '密码长度为6-20'
-        too_long: '密码长度为6-20'
-        confirmation: '两次输入的密码不相同!'
-        blank:  '此项不能为空!'
-        invalid: '输入的内容不正确!'
-        record_invalid: '记录无效!'
+      models:
+        user:
+          attributes:
+            username:
+              too_short: '用户名只能由3-20的字符组成'
+            email:
+              blank: '邮箱地址不能为空'
+            password:
+              blank: '密码不能为空'
+            password_confirmation:
+              confirmation: '两次输入的密码不相同'
+

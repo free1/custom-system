@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   # 第三方登录
   has_many :authentications
 
-  validates :username, uniqueness: { :case_sensitive => false }
+  validates :username, uniqueness: { :case_sensitive => false },
+                       format: {:with => /\A\w+\z/, :message => '只允许数字、大小写字母和下划线'},
+                       length: {:in => 3..20}, presence: true
 
   # 使用用户名或邮箱登录
   def self.find_first_by_auth_conditions(warden_conditions)
