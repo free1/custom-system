@@ -13,3 +13,8 @@ zh:
             password_confirmation:
               confirmation: '两次输入的密码不相同'
 
+  datetime:
+    distance_in_words:
+      x_minutes: '分钟'
+      less_than_x_minutes: '分钟之前'
+

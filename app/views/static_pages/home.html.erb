@@ -1,2 +1,16 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<h4>现在总共有 {n} 个注册用户在查看这个网站，有 {m} 个陌生人在查看这个网站</h4>
+<% if user_signed_in? %>
+  <span>
+    <ul>
+      <ol> <%= current_user.username %> 谢谢你登录了我们网站！</ol>
+      <ol> 你已经登录了 <%= current_user.sign_in_count %> 次了，</ol>
+      <ol> 总共登录时间是  。</ol>
+      <ol> 本次登录时间是  <%= current_user.current_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %> </ol>
+      <ol> 上次登录时间是  <%= current_user.last_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %> </ol>
+      <ol> 本次登录IP是 <%= current_user.current_sign_in_ip %> </ol>
+      <ol> 上次登录IP是 <%= current_user.last_sign_in_ip %> </ol>
+    </ul>
+  </span>
+<% else %>
+  你好，陌生人！你没有登录，或者你还没有注册，但是你已经浏览这个页面 {M} 分钟了。
+<% end %>
