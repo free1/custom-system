@@ -11,6 +11,7 @@ class StaticPagesController < ApplicationController
   end
 
   def home
+    @online_users = User.where('on_line = 1')
   end
 
   # private

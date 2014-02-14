@@ -15,33 +15,42 @@ class User < ActiveRecord::Base
                        format: {:with => /\A\w+\z/, :message => '只允许数字、大小写字母和下划线'},
                        length: {:in => 3..20}, presence: true
 
-  # 使用用户名或邮箱登录
-  def self.find_first_by_auth_conditions(warden_conditions)
-    conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-    else
-      where(conditions).first
-    end
+  # 判断用户是否在线
+  def user_on_line
+    self.update_attribute(:on_line, 1)
+  end
+  def user_not_on_line
+    self.update_attribute(:on_line, 0)
   end
 
-  # 使用第三方登录
-  def self.find_for_github_oauth(auth, signed_in_resource=nil)
-    user = Authentication.find_by_provider_and_uid(auth[:provider], auth[:uid]).try(:user)
-    unless user
-      user = User.new do |user|
-        user.username = auth[:info][:nickname]
-        user.email = auth[:info][:email]
-        user.password = Devise.friendly_token[0,20]
-        user.authentications.build do |authentication|
-          authentication.provider = auth[:provider]
-          authentication.uid = auth[:uid]
-          authentication.save!
-        end
-        user.save!
+  class << self
+    # 使用用户名或邮箱登录
+    def find_first_by_auth_conditions(warden_conditions)
+      conditions = warden_conditions.dup
+      if login = conditions.delete(:login)
+        where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      else
+        where(conditions).first
       end
     end
-    user
-  end
 
+    # 使用第三方登录
+    def find_for_github_oauth(auth, signed_in_resource=nil)
+      user = Authentication.find_by_provider_and_uid(auth[:provider], auth[:uid]).try(:user)
+      unless user
+        user = User.new do |user|
+          user.username = auth[:info][:nickname]
+          user.email = auth[:info][:email]
+          user.password = Devise.friendly_token[0,20]
+          user.authentications.build do |authentication|
+            authentication.provider = auth[:provider]
+            authentication.uid = auth[:uid]
+            authentication.save!
+          end
+          user.save!
+        end
+      end
+      user
+    end
+  end
 end
