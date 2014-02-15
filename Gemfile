@@ -9,6 +9,9 @@ gem 'simple_form'
 # 使用第三方登录
 gem 'omniauth'
 gem 'omniauth-github'
+# 上传组件
+gem 'carrierwave'
+gem 'mini_magick'
 
 # 默认gem
 gem 'sass-rails', '~> 4.0.0'

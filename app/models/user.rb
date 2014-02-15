@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
   attr_accessor :login
 
+  # 用户头像
+  mount_uploader :avatar, AvatarUploader
+
   # 第三方登录
   has_many :authentications
 
@@ -51,6 +54,16 @@ class User < ActiveRecord::Base
         end
       end
       user
+    end
+  end
+
+  # 更新资料时去掉密码验证
+  def update_with_password(params={})
+    if !params[:current_password].blank? or !params[:password].blank? or !params[:password_confirmation].blank?
+      super
+    else
+      params.delete(:current_password)
+      self.update_without_password(params)
     end
   end
 end

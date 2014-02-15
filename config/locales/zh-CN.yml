@@ -7,15 +7,20 @@ zh:
             username:
               too_short: '用户名只能由3-20个的字符组成'
               too_long: '用户名只能由3-20个的字符组成'
+              taken: '这个用户名被占用了'
             email:
               blank: '邮箱地址不能为空'
               invalid: '无效的邮箱'
+              taken: '这个邮箱被占用了'
             password:
               blank: '密码不能为空'
               too_short: '密码太短了'
               too_long: '密码太长了'
             password_confirmation:
               confirmation: '两次输入的密码不相同'
+            current_password:
+              blank: '密码不能为空'
+              invalid: '原密码不正确'
 
   datetime:
     distance_in_words:

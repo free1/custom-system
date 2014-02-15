@@ -14,3 +14,4 @@
           password: '新密码'
           password_confirmation: '新密码确认'
           current_password: '原始密码'
+          avatar: '头像'

@@ -20,6 +20,7 @@ class AccountController < Devise::RegistrationsController
   end
 
   def edit
+    @user = current_user
   end
 
   def update
