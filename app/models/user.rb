@@ -26,6 +26,16 @@ class User < ActiveRecord::Base
     self.update_attribute(:on_line, 0)
   end
 
+  # 更新资料时去掉密码验证
+  def update_with_password(params={})
+    if !params[:current_password].blank? or !params[:password].blank? or !params[:password_confirmation].blank?
+      super
+    else
+      params.delete(:current_password)
+      self.update_without_password(params)
+    end
+  end
+
   class << self
     # 使用用户名或邮箱登录
     def find_first_by_auth_conditions(warden_conditions)
@@ -54,16 +64,6 @@ class User < ActiveRecord::Base
         end
       end
       user
-    end
-  end
-
-  # 更新资料时去掉密码验证
-  def update_with_password(params={})
-    if !params[:current_password].blank? or !params[:password].blank? or !params[:password_confirmation].blank?
-      super
-    else
-      params.delete(:current_password)
-      self.update_without_password(params)
     end
   end
 end
